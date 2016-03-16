@@ -69,7 +69,10 @@
 	// 把密钥写入文件
 	//
 	NSString *formatKey = [self formatPrivateKey:_privateKey];
+	
+		NSLog(@"formatPrivateKey._privateKey:%@",formatKey);
 	[formatKey writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:nil];
+	NSLog(@"formatPrivateKey.writeToFile:%@",path);
 	
 	const char *message = [string cStringUsingEncoding:NSUTF8StringEncoding];
     int messageLength = strlen(message);
