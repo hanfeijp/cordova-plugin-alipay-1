@@ -15,6 +15,7 @@
 - (id)initWithPrivateKey:(NSString *)privateKey {
 	if (self = [super init]) {
 		_privateKey = [privateKey copy];
+		NSLog(@"RSADataSigner._privateKey:%@",_privateKey);
 	}
 	return self;
 }
