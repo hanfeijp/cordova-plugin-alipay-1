@@ -78,14 +78,18 @@
     int messageLength = strlen(message);
     unsigned char *sig = (unsigned char *)malloc(256);
 	unsigned int sig_len;
+		NSLog(@"formatPrivateKey.step1");
     int ret = rsa_sign_with_private_key_pem((char *)message, messageLength, sig, &sig_len, (char *)[path UTF8String]);
+    	NSLog(@"formatPrivateKey.step3");
 	//签名成功,需要给签名字符串base64编码和UrlEncode,该两个方法也可以根据情况替换为自己函数
     if (ret == 1) {
+    	NSLog(@"formatPrivateKey.step3");
         NSString * base64String = base64StringFromData([NSData dataWithBytes:sig length:sig_len]);
+        	NSLog(@"formatPrivateKey.step4");
 		//NSData * UTF8Data = [base64String dataUsingEncoding:NSUTF8StringEncoding];
 		signedString = [self urlEncodedString:base64String];
     }
-	
+		NSLog(@"formatPrivateKey.step5");
 	free(sig);
     return signedString;
 }
