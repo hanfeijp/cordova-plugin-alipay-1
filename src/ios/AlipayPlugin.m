@@ -24,6 +24,8 @@
      *签约后，支付宝会为每个商户分配一个唯一的 parnter 和 seller。
      */
     NSLog(@"ios alipay command pay check");
+    
+     NSLog(@"ios alipay command pay privateKey : %@",self.privateKey);
     //partner和seller获取失败,提示
     if ([self.partner length] == 0 ||
         [self.seller length] == 0 ||
@@ -72,7 +74,9 @@
     //获取私钥并将商户信息签名,外部商户可以根据情况存放私钥和签名,只需要遵循RSA签名规范,并将签名字符串base64编码和UrlEncode
     id<DataSigner> signer = CreateRSADataSigner(self.privateKey);
     NSString *signedString = [signer signString:orderSpec];
-
+    
+    NSLog(@"ios alipay command pay signer end ");
+    
     //将签名成功字符串格式化为订单字符串,请严格按照该格式
     NSString *orderString = nil;
     if (signedString != nil) {
