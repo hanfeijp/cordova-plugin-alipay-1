@@ -81,11 +81,11 @@
 		NSLog(@"formatPrivateKey.step1");
 		
     int ret = rsa_sign_with_private_key_pem((char *)message, messageLength, sig, &sig_len, (char *)[path UTF8String]);
-    		NSLog(@"formatPrivateKey.step3%@",message);
-    		NSLog(@"formatPrivateKey.step3%@",messageLength);
-    		NSLog(@"formatPrivateKey.step3%@",sig);
-    		NSLog(@"formatPrivateKey.step3%@",sig_len);
-    		NSLog(@"formatPrivateKey.step3%@",path);
+    		//NSLog(@"formatPrivateKey.step3%@",message);
+    		//NSLog(@"formatPrivateKey.step3%@",messageLength);
+    		//NSLog(@"formatPrivateKey.step3%@",sig);
+    		//NSLog(@"formatPrivateKey.step3%@",sig_len);
+    		//NSLog(@"formatPrivateKey.step3%@",path);
 	//签名成功,需要给签名字符串base64编码和UrlEncode,该两个方法也可以根据情况替换为自己函数
     if (ret == 1) {
     
